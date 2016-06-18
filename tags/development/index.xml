@@ -112,7 +112,7 @@ export LC_CTYPE=en_US.UTF-8
       <guid>http://www.wanggaolei.work/post/2016-3-23/</guid>
       <description>
 
-&lt;h3 id=&#34;1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x&#34;&gt;1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x&lt;/h3&gt;
+&lt;h3 id=&#34;1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x:e654389c86d770b67f5427a265e22c36&#34;&gt;1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x&lt;/h3&gt;
 
 &lt;p&gt;解决办法：改写urllib相关的引用
 urllib2和urllib2合并为urllib
@@ -120,7 +120,7 @@ urlencode改为parse.urlencode
 urlopen改为request.urlopen
 parse.urlencode的入参要增加utf8编码，parse.urlencode(post_data).encode(encoding=&amp;lsquo;utf8&amp;rsquo;)&lt;/p&gt;
 
-&lt;h3 id=&#34;2-错误valueerror-no-json-object-could-be-decoded&#34;&gt;2. 错误ValueError: No JSON object could be decoded&lt;/h3&gt;
+&lt;h3 id=&#34;2-错误valueerror-no-json-object-could-be-decoded:e654389c86d770b67f5427a265e22c36&#34;&gt;2. 错误ValueError: No JSON object could be decoded&lt;/h3&gt;
 
 &lt;p&gt;解决办法：是自己挖的坑在print里增加file=sys.stderr后，输出到cmd口了，去掉就ok了
 print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;

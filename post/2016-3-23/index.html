@@ -3,7 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.16" />
+  <meta name="generator" content="Hugo 0.15" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -66,7 +66,7 @@
 			  <span class="post-date">Wed, Mar 23, 2016</span>
 			      
 
-<h3 id="1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x">1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x</h3>
+<h3 id="1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x:e654389c86d770b67f5427a265e22c36">1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x</h3>
 
 <p>解决办法：改写urllib相关的引用
 urllib2和urllib2合并为urllib
@@ -74,7 +74,7 @@ urlencode改为parse.urlencode
 urlopen改为request.urlopen
 parse.urlencode的入参要增加utf8编码，parse.urlencode(post_data).encode(encoding=&lsquo;utf8&rsquo;)</p>
 
-<h3 id="2-错误valueerror-no-json-object-could-be-decoded">2. 错误ValueError: No JSON object could be decoded</h3>
+<h3 id="2-错误valueerror-no-json-object-could-be-decoded:e654389c86d770b67f5427a265e22c36">2. 错误ValueError: No JSON object could be decoded</h3>
 
 <p>解决办法：是自己挖的坑在print里增加file=sys.stderr后，输出到cmd口了，去掉就ok了
 print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)</p>
