@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on 半老码农的三分地</title>
+    <link>http://www.wanggaolei.work/tags/development/</link>
+    <description>Recent content in Development on 半老码农的三分地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn-zh</language>
+    <lastBuildDate>Sat, 18 Jun 2016 23:01:43 +0800</lastBuildDate>
+    <atom:link href="http://www.wanggaolei.work/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我的Linux主机</title>
+      <link>http://www.wanggaolei.work/post/2016-6-18-2/</link>
+      <pubDate>Sat, 18 Jun 2016 23:01:43 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-6-18-2/</guid>
+      <description>&lt;p&gt;1、PC机
+系统：Gentoo
+oh-my-zsh
+2、PineA64
+系统：ArchLinux ARM64
+oh-my-zsh
+3、VPS
+系统：Debian 6.0&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在Pine A64 &#43; Arch Linux上挂在NFS系统遇到问题汇总</title>
+      <link>http://www.wanggaolei.work/post/2016-6-18/</link>
+      <pubDate>Sat, 18 Jun 2016 14:14:56 +0000</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-6-18/</guid>
+      <description>&lt;p&gt;1、寻找nfs工具，并安装
+sudo pacman -Ss nfs
+sudo pacman -Sy nfs-utils
+2、挂载系统
+sudo mount -t nfs -o rw 192.168.3.66:/volume2/public /mnt/Public
+提示错误，mount.nfs: an incorrect mount option was specified
+ 改用命令
+ sudo mount -t nfs -o vers=3 192.168.3.66:/volume2/public /mnt/Public
+ 提示启动失败，查看log&lt;/p&gt;
+
+&lt;p&gt;rpc.statd[23584]: Flags: TI-RPC
+ rpc.statd[23584]: Running as root.  chown /var/lib/nfs to choose different user
+ rpc.statd[23584]: failed to create RPC listeners, exiting
+ Google解决方案：重新安装rpcbind，启动服务&lt;/p&gt;
+
+&lt;p&gt;sudo pacman -S rpcbind&lt;/p&gt;
+
+&lt;p&gt;sudo  systemctl enable  rpcbind.service&lt;/p&gt;
+
+&lt;p&gt;sudo  systemctl start  rpcbind.service&lt;br /&gt;
+ 再次执行sudo mount -t nfs -o vers=3 192.168.3.66:/volume2/public
+ /mnt/Public提示访问受限，修改NAS上的NFS共享目录权限，解决3、只有root账户可以访问挂在目录？解决思路1：修改/mnt/Public的权限解决思路2：在NAS上修改目录权限，映射所有用户到admin。两个思路都要用到，修改步骤如下：a、在NAS上修改admin有对public的读写权限b、在NAS上修改public的NFS设置，映射所有用户到adminc、在client上修改fstab，增加192.168.3.66:/volume2/public
+ /mnt/Public nfs vers=4,noauto,user,rw 0
+ 0d、在client上，修改/mnt/Public的chown为alarm:alarm&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016 6 17</title>
+      <link>http://www.wanggaolei.work/post/2016-6-17/</link>
+      <pubDate>Fri, 17 Jun 2016 23:54:45 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-6-17/</guid>
+      <description>&lt;p&gt;在PineA64(Arch Linux)安装oh-my-zsh后，putty远程登录，有两个问题：
+1、中文乱码
+2、启动Vim，自定义配置加载失败，错误原因为不能设置language为en_US.UTF-8&lt;/p&gt;
+
+&lt;p&gt;分析是语言环境变量locale和字体原因，修改locale.gen
+en_US.UTF-8 UTF-8
+en_US ISO-8859-1
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+zh_CN GB2312
+执行locale-gen
+[Fixed]问题2解决&lt;/p&gt;
+
+&lt;p&gt;修改.zshrc
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8(有一段时间缺少这句配置，Google很久）
+安装文泉驿字体
+wqy-microhei
+wqy-bitmapfont
+wqy-zenhei
+[Fixed]问题1解决&lt;/p&gt;
+
+&lt;p&gt;为了改进putty登录Pine64的便捷性，决定启动oh-my-zsh中自动启动tmux的功能
+.zshrc中增加
+ZSH_TMUX_AUTOSTART=&amp;ldquo;true&amp;rdquo;
+plugins=(git tmux)
+退出putty后，重新登入出现问题：
+中文乱码，查看locale是正常的，但是ls结果和vim模式下中文都显示不正常。&lt;/p&gt;
+
+&lt;p&gt;分析oh-my-zsh自动启动tmux的过程，应该是解析到plugins=(git tmux)这句后启动。
+修改.zshrc
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+放在plugins=(git tmux)之前
+[Fixed]中文乱码问题解决&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016 3 23</title>
+      <link>http://www.wanggaolei.work/post/2016-3-23/</link>
+      <pubDate>Wed, 23 Mar 2016 18:14:08 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-3-23/</guid>
+      <description>
+
+&lt;h3 id=&#34;1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x&#34;&gt;1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x&lt;/h3&gt;
+
+&lt;p&gt;解决办法：改写urllib相关的引用
+urllib2和urllib2合并为urllib
+urlencode改为parse.urlencode
+urlopen改为request.urlopen
+parse.urlencode的入参要增加utf8编码，parse.urlencode(post_data).encode(encoding=&amp;lsquo;utf8&amp;rsquo;)&lt;/p&gt;
+
+&lt;h3 id=&#34;2-错误valueerror-no-json-object-could-be-decoded&#34;&gt;2. 错误ValueError: No JSON object could be decoded&lt;/h3&gt;
+
+&lt;p&gt;解决办法：是自己挖的坑在print里增加file=sys.stderr后，输出到cmd口了，去掉就ok了
+print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python函数参数传递的疑问</title>
+      <link>http://www.wanggaolei.work/post/2016-1-6/</link>
+      <pubDate>Wed, 06 Jan 2016 14:40:47 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-1-6/</guid>
+      <description>&lt;p&gt;第一个函数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-phthon&#34;&gt;def getDataFromDb(db_list):
+    try:
+        conn = sqlite3.connect(&#39;appdata.db&#39;)
+        # Get a cursor object
+        cursor = conn.cursor()
+        cursor.execute(&#39;&#39;&#39;SELECT name, number FROM numbers5&#39;&#39;&#39;)
+        db_list = cursor.fetchall()
+        # cursor.execute(&#39;&#39;&#39;SELECT name FROM numbers5&#39;&#39;&#39;)
+        # list_valid = cursor.fetchall()
+    except Exception as e:
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用getDataFromDb(db_list)后，list还是为空&lt;/p&gt;
+
+&lt;p&gt;第二个函数:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def getDataFromDb(db_list):
+    try:
+        conn = sqlite3.connect(&#39;appdata.db&#39;)
+        # Get a cursor object
+        cursor = conn.cursor()
+        cursor.execute(&#39;&#39;&#39;SELECT name, number FROM numbers5&#39;&#39;&#39;)
+        db_list = cursor.fetchall()
+        # cursor.execute(&#39;&#39;&#39;SELECT name FROM numbers5&#39;&#39;&#39;)
+        # list_valid = cursor.fetchall()
+    except Exception as e:
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
+    return db_list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用db_list = getDataFromDb(db_list)后，db_list保存了从数据库中读出的数据&lt;/p&gt;
+
+&lt;p&gt;原因待查&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016 1 4 sql</title>
+      <link>http://www.wanggaolei.work/post/2016-1-4-sql/</link>
+      <pubDate>Mon, 04 Jan 2016 21:58:07 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-1-4-sql/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;数据库是要设置主键&lt;/li&gt;
+&lt;li&gt;有两个选择，一是自增ID，另一个就是将时间戳加上自增毫秒值&lt;/li&gt;
+&lt;li&gt;之前数据库输入时出现某一秒的记录分在两个文件保存，导致自增毫秒值出现了重复
+
+&lt;ul&gt;
+&lt;li&gt;这个问题有个简单的解决办法就是使用全局自增毫秒值&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;考虑使用时间戳+全局自增毫秒值，这样标语表之间排序比较方便&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016年1月4日- 网上教程害死人</title>
+      <link>http://www.wanggaolei.work/post/2016-1-4/</link>
+      <pubDate>Mon, 04 Jan 2016 14:16:08 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-1-4/</guid>
+      <description>&lt;p&gt;为了在vps和openwrt上进行定时重启shadowsocks服务，从网上搜索了crontab的用法。
+多个搜索结果显示，每一个小时执行一次的写法是:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;* */1 * * * /usr/local/etc/rc.d/lighttpd restart&lt;br /&gt;
+  每一小时重启apache&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;实测这个是每分钟执行一次，真正每小时执行一次是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;0 * * * * /usr/local/etc/rc.d/lighttpd restart&lt;br /&gt;
+  每一小时重启lighttpd&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016年1月3日--- 四人小聚</title>
+      <link>http://www.wanggaolei.work/post/2016-1-3/</link>
+      <pubDate>Sun, 03 Jan 2016 16:59:02 +0800</pubDate>
+      
+      <guid>http://www.wanggaolei.work/post/2016-1-3/</guid>
+      <description>&lt;p&gt;今天和&lt;strong&gt;董，郑，李&lt;/strong&gt;吃饭闲聊。
+说到公司待遇，管理，出路等问题，每个人侧重点不一样，还是很有启发。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
