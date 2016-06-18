@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Development on 半老码农的三分地</title>
-    <link>http://www.wanggaolei.work/tags/development/</link>
+    <link>https://mecod.github.io/tags/development/</link>
     <description>Recent content in Development on 半老码农的三分地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-zh</language>
     <lastBuildDate>Sat, 18 Jun 2016 23:01:43 +0800</lastBuildDate>
-    <atom:link href="http://www.wanggaolei.work/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mecod.github.io/tags/development/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>我的Linux主机</title>
-      <link>http://www.wanggaolei.work/post/2016-6-18-2/</link>
+      <link>https://mecod.github.io/post/2016-6-18-2/</link>
       <pubDate>Sat, 18 Jun 2016 23:01:43 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-6-18-2/</guid>
+      <guid>https://mecod.github.io/post/2016-6-18-2/</guid>
       <description>&lt;p&gt;1、PC机
 系统：Gentoo
 oh-my-zsh
@@ -28,10 +28,10 @@ oh-my-zsh
     
     <item>
       <title>在Pine A64 &#43; Arch Linux上挂在NFS系统遇到问题汇总</title>
-      <link>http://www.wanggaolei.work/post/2016-6-18/</link>
+      <link>https://mecod.github.io/post/2016-6-18/</link>
       <pubDate>Sat, 18 Jun 2016 14:14:56 +0000</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-6-18/</guid>
+      <guid>https://mecod.github.io/post/2016-6-18/</guid>
       <description>&lt;p&gt;1、寻找nfs工具，并安装
 sudo pacman -Ss nfs
 sudo pacman -Sy nfs-utils
@@ -61,10 +61,10 @@ sudo mount -t nfs -o rw 192.168.3.66:/volume2/public /mnt/Public
     
     <item>
       <title>2016 6 17</title>
-      <link>http://www.wanggaolei.work/post/2016-6-17/</link>
+      <link>https://mecod.github.io/post/2016-6-17/</link>
       <pubDate>Fri, 17 Jun 2016 23:54:45 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-6-17/</guid>
+      <guid>https://mecod.github.io/post/2016-6-17/</guid>
       <description>&lt;p&gt;在PineA64(Arch Linux)安装oh-my-zsh后，putty远程登录，有两个问题：
 1、中文乱码
 2、启动Vim，自定义配置加载失败，错误原因为不能设置language为en_US.UTF-8&lt;/p&gt;
@@ -106,13 +106,13 @@ export LC_CTYPE=en_US.UTF-8
     
     <item>
       <title>2016 3 23</title>
-      <link>http://www.wanggaolei.work/post/2016-3-23/</link>
+      <link>https://mecod.github.io/post/2016-3-23/</link>
       <pubDate>Wed, 23 Mar 2016 18:14:08 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-3-23/</guid>
+      <guid>https://mecod.github.io/post/2016-3-23/</guid>
       <description>
 
-&lt;h3 id=&#34;1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x:e654389c86d770b67f5427a265e22c36&#34;&gt;1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x&lt;/h3&gt;
+&lt;h3 id=&#34;1-运行手机上app报错-因为手机上现在使用qpython3-内核是python3-2-而教材上是python2-x&#34;&gt;1. 运行手机上APP报错，因为手机上现在使用Qpython3，内核是Python3.2，而教材上是Python2.x&lt;/h3&gt;
 
 &lt;p&gt;解决办法：改写urllib相关的引用
 urllib2和urllib2合并为urllib
@@ -120,7 +120,7 @@ urlencode改为parse.urlencode
 urlopen改为request.urlopen
 parse.urlencode的入参要增加utf8编码，parse.urlencode(post_data).encode(encoding=&amp;lsquo;utf8&amp;rsquo;)&lt;/p&gt;
 
-&lt;h3 id=&#34;2-错误valueerror-no-json-object-could-be-decoded:e654389c86d770b67f5427a265e22c36&#34;&gt;2. 错误ValueError: No JSON object could be decoded&lt;/h3&gt;
+&lt;h3 id=&#34;2-错误valueerror-no-json-object-could-be-decoded&#34;&gt;2. 错误ValueError: No JSON object could be decoded&lt;/h3&gt;
 
 &lt;p&gt;解决办法：是自己挖的坑在print里增加file=sys.stderr后，输出到cmd口了，去掉就ok了
 print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
@@ -129,10 +129,10 @@ print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
     
     <item>
       <title>Python函数参数传递的疑问</title>
-      <link>http://www.wanggaolei.work/post/2016-1-6/</link>
+      <link>https://mecod.github.io/post/2016-1-6/</link>
       <pubDate>Wed, 06 Jan 2016 14:40:47 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-1-6/</guid>
+      <guid>https://mecod.github.io/post/2016-1-6/</guid>
       <description>&lt;p&gt;第一个函数：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-phthon&#34;&gt;def getDataFromDb(db_list):
@@ -180,10 +180,10 @@ print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
     
     <item>
       <title>2016 1 4 sql</title>
-      <link>http://www.wanggaolei.work/post/2016-1-4-sql/</link>
+      <link>https://mecod.github.io/post/2016-1-4-sql/</link>
       <pubDate>Mon, 04 Jan 2016 21:58:07 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-1-4-sql/</guid>
+      <guid>https://mecod.github.io/post/2016-1-4-sql/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;数据库是要设置主键&lt;/li&gt;
 &lt;li&gt;有两个选择，一是自增ID，另一个就是将时间戳加上自增毫秒值&lt;/li&gt;
@@ -199,10 +199,10 @@ print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
     
     <item>
       <title>2016年1月4日- 网上教程害死人</title>
-      <link>http://www.wanggaolei.work/post/2016-1-4/</link>
+      <link>https://mecod.github.io/post/2016-1-4/</link>
       <pubDate>Mon, 04 Jan 2016 14:16:08 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-1-4/</guid>
+      <guid>https://mecod.github.io/post/2016-1-4/</guid>
       <description>&lt;p&gt;为了在vps和openwrt上进行定时重启shadowsocks服务，从网上搜索了crontab的用法。
 多个搜索结果显示，每一个小时执行一次的写法是:&lt;/p&gt;
 
@@ -222,10 +222,10 @@ print(json.dumps(athletes[athlete_name].to_dict), file=sys.stderr)&lt;/p&gt;
     
     <item>
       <title>2016年1月3日--- 四人小聚</title>
-      <link>http://www.wanggaolei.work/post/2016-1-3/</link>
+      <link>https://mecod.github.io/post/2016-1-3/</link>
       <pubDate>Sun, 03 Jan 2016 16:59:02 +0800</pubDate>
       
-      <guid>http://www.wanggaolei.work/post/2016-1-3/</guid>
+      <guid>https://mecod.github.io/post/2016-1-3/</guid>
       <description>&lt;p&gt;今天和&lt;strong&gt;董，郑，李&lt;/strong&gt;吃饭闲聊。
 说到公司待遇，管理，出路等问题，每个人侧重点不一样，还是很有启发。&lt;/p&gt;
 </description>
